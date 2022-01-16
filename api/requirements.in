@@ -1,0 +1,9 @@
+Flask
+pytest
+pytest-mock
+pandas==1.3.0
+scipy
+statsmodels
+pykalman
+python-dateutil
+gunicorn
