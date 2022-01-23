@@ -1,0 +1,10 @@
+{
+  "data": {
+    "dataUrl": "overwrite here",
+    "params": {
+      "ci": 0.99,
+      "seasonalFreq": "1w",
+      "forecastInterval": 2
+    }
+  }
+}

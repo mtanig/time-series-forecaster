@@ -1,1 +1,1 @@
-# time-series-forcaster
+# time-series-forecaster
