@@ -1,4 +1,15 @@
 .idea
+.DS_Store
+
+# frontend
 node_modules
 package-lock.json
+dist
+dist-ssr
+*.local
+
+# backend
+.pytest_cache
+
+# notebooks
 .ipynb_checkpoints
