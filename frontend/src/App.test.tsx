@@ -8,7 +8,7 @@ describe("App", () => {
         render(<App/>);
     });
 
-    describe("button", ()=>{
+    describe.skip("button", ()=>{
         test("renders initial value", ()=>{
             expect(screen.getByText(/count is: 0/)).toBeInTheDocument()
         })
