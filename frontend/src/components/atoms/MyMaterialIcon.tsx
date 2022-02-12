@@ -6,12 +6,12 @@ type Props = {
     icon: string,
 }
 
-export const Icon = (props: Props) => {
+export const MyMaterialIcon = (props: Props) => {
     return (
         <MaterialIcon icon={props.icon}/>
     );
 }
 
-Icon.defaultProps = {
+MyMaterialIcon.defaultProps = {
     icon: 'add'
 }

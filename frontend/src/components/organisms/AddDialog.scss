@@ -1,0 +1,15 @@
+.add-dialog{
+  .mdc-dialog {
+    .mdc-dialog__surface {
+      min-width: 1000px;
+
+      .mdc-dialog__title {
+        text-align: center;
+      }
+
+      .mdc-dialog__actions {
+        justify-content: center;
+      }
+    }
+  }
+}

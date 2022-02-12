@@ -15,7 +15,7 @@ type Props = {
     toolbarInner?: React.ReactNode,
 }
 
-export const TopBar = (props: Props) => {
+export const MyTopAppBar = (props: Props) => {
     return (
         <div
             className={props.className}
@@ -38,7 +38,7 @@ export const TopBar = (props: Props) => {
     );
 }
 
-TopBar.defaultProps = {
-    className: TopBar.name.toLowerCase(),
-    title: TopBar.name.toLowerCase(),
+MyTopAppBar.defaultProps = {
+    className: MyTopAppBar.name.toLowerCase(),
+    title: MyTopAppBar.name.toLowerCase(),
 }

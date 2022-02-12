@@ -1,0 +1,10 @@
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 6px 0 6px 0;
+
+  .border{
+    border-bottom: 1px solid black;
+    width: 100%;
+  }
+}

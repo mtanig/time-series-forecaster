@@ -1,5 +1,5 @@
-import { TopBar } from '../atoms/TopBar';
-import { IconFab } from '../molecules/IconFab';
+import { MyTopAppBar } from '../atoms/MyTopAppBar';
+import { MyFab } from '../atoms/MyFab';
 import React from 'react';
 
 type Props = {
@@ -12,9 +12,11 @@ export const Header = (props: Props) => {
         <div
             className={props.className}
         >
-            <TopBar
+            <MyTopAppBar
                 title={props.title}
-                toolbarInner={<IconFab textLabel={'ADD'}/>}
+                toolbarInner={
+                    <MyFab textLabel={'ADD'}/>
+                }
             />
         </div>
     );
