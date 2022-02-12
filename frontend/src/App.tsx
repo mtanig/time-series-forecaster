@@ -1,6 +1,7 @@
-import { DefaultTemplate } from './components/templates/DefaultTemplate';
-import { useCallback, useState } from 'react';
-import { AddDialogState, DefaultAddDialogState } from './components/organisms/AddDialog';
+import React, { useCallback, useState } from 'react';
+import { AddDialog, AddDialogState, DefaultAddDialogState } from './components/organisms/AddDialog';
+import { MyTopAppBar } from './components/atoms/MyTopAppBar';
+import { MyFab } from './components/atoms/MyFab';
 
 function App() {
     const [addDialogState, setAddDialogState] = useState<AddDialogState>(DefaultAddDialogState)
@@ -9,20 +10,23 @@ function App() {
     const onClickFab = useCallback(()=>{
         setIsOpenAddDialog(true)
     },[]);
-    const onClickAddDialogCloseButton = useCallback(()=>{
-        setIsOpenAddDialog(false)
-    },[]);
 
     return (
         <div className="app">
-            <DefaultTemplate
-                className={'template'}
+            <MyTopAppBar
                 title={'Time Series Forecaster'}
-                onClickFab={onClickFab}
-                addDialogState={addDialogState}
-                setAddDialogState={setAddDialogState}
-                isOpenAddDialog={isOpenAddDialog}
-                onClickAddDialogCloseButton={onClickAddDialogCloseButton}
+                toolbarInner={
+                    <MyFab
+                        textLabel={'ADD'}
+                        onClick={onClickFab}
+                    />
+                }
+            />
+            <AddDialog
+                state={addDialogState}
+                setState={setAddDialogState}
+                isOpen={isOpenAddDialog}
+                setIsOpenAddDialog={setIsOpenAddDialog}
             />
         </div>
     )

@@ -17,13 +17,11 @@ import { AddData } from '../molecules/AddData';
 import { MyTextField } from '../atoms/MyTextField';
 
 export type AddDialogState = {
-    action: string,
     periodValue: string,
     ciValue: string,
 }
 
 export const DefaultAddDialogState: AddDialogState = {
-    action: '',
     periodValue: '5',
     ciValue: '99',
 }
@@ -34,7 +32,7 @@ type AddDialogProps = {
     state: AddDialogState,
     setState: SetAddDialogState,
     isOpen: boolean,
-    onClickCloseButton: (e:any)=>void,
+    setIsOpenAddDialog: Dispatch<SetStateAction<boolean>>,
 }
 
 
@@ -46,6 +44,9 @@ export const AddDialog = (props: AddDialogProps) => {
         setAddDialogState(props.state);
     }, [props.isOpen])
 
+    const onClose = () => {
+        props.setIsOpenAddDialog(false);
+    };
     const onClickFinishButton = ()=>{
         props.setState(addDialogState);
     }
@@ -53,8 +54,9 @@ export const AddDialog = (props: AddDialogProps) => {
     return (
         <div className={'add-dialog'}>
             <Dialog
-                onClose={props.onClickCloseButton}
+                onClose={onClose}
                 open={props.isOpen}
+                role={'dialog'}
             >
                 <DialogTitle>Forecast Setting</DialogTitle>
                 <DialogContent>
@@ -106,7 +108,6 @@ export const AddDialog = (props: AddDialogProps) => {
                     </DialogButton>
                     <DialogButton
                         action='confirm'
-                        isDefault
                         onClick={onClickFinishButton}
                     >
                         FINISH
@@ -120,4 +121,6 @@ export const AddDialog = (props: AddDialogProps) => {
 AddDialog.defaultProps = {
     state: DefaultAddDialogState,
     setState: () => {},
+    isOpen: false,
+    setIsOpenAddDialog: () => {},
 }
