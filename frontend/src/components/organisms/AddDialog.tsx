@@ -12,16 +12,18 @@ import Dialog, {
 } from '@material/react-dialog';
 import { FormRow } from '../atoms/FormRow';
 import { Divider } from '../atoms/Divider';
-import { CycleTabs } from '../molecules/CycleTabs';
+import { Cycle, CycleTabs, CycleType } from '../molecules/CycleTabs';
 import { AddData } from '../molecules/AddData';
 import { MyTextField } from '../atoms/MyTextField';
 
 export type AddDialogState = {
+    cycleValue: CycleType,
     periodValue: string,
     ciValue: string,
 }
 
 export const DefaultAddDialogState: AddDialogState = {
+    cycleValue: Cycle.DAILY,
     periodValue: '5',
     ciValue: '99',
 }
@@ -70,7 +72,12 @@ export const AddDialog = (props: AddDialogProps) => {
                     <FormRow
                         titleText={'Cycle'}
                         element={
-                            <CycleTabs/>
+                            <CycleTabs
+                                value={addDialogState.cycleValue}
+                                onFocus={(value: CycleType)=>{
+                                    setAddDialogState({...addDialogState, cycleValue: value})
+                                }}
+                            />
                         }
                     />
                     <Divider/>

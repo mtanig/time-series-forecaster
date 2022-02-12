@@ -6,11 +6,15 @@ import Tab from '@material/react-tab';
 type Props = {
     active: boolean,
     text: string,
+    onFocus: (value:any)=>void,
 }
 
 export const MyTab = (props: Props) => {
     return (
-        <Tab active={props.active}>
+        <Tab
+            active={props.active}
+            onFocus={props.onFocus}
+        >
             <span className='mdc-tab__text-label'>
                 {props.text}
             </span>
@@ -21,4 +25,5 @@ export const MyTab = (props: Props) => {
 MyTab.defaultProps = {
     active: false,
     text: '',
+    onFocus: ()=>{},
 }
