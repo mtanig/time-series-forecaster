@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { AddDialog, AddDialogState, DefaultAddDialogState } from './components/organisms/AddDialog';
-import { MyTopAppBar } from './components/atoms/MyTopAppBar';
-import { MyFab } from './components/atoms/MyFab';
+import { Header } from './components/organisms/Header';
 
 function App() {
     const [addDialogState, setAddDialogState] = useState<AddDialogState>(DefaultAddDialogState)
@@ -13,14 +12,9 @@ function App() {
 
     return (
         <div className="app">
-            <MyTopAppBar
+            <Header
                 title={'Time Series Forecaster'}
-                toolbarInner={
-                    <MyFab
-                        textLabel={'ADD'}
-                        onClick={onClickFab}
-                    />
-                }
+                onClickFab={onClickFab}
             />
             <AddDialog
                 state={addDialogState}

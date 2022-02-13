@@ -5,6 +5,7 @@ import React from 'react';
 type Props = {
     className: string,
     title: string,
+    onClickFab: (e:any)=>void,
 }
 
 export const Header = (props: Props) => {
@@ -15,7 +16,10 @@ export const Header = (props: Props) => {
             <MyTopAppBar
                 title={props.title}
                 toolbarInner={
-                    <MyFab textLabel={'ADD'}/>
+                    <MyFab
+                        textLabel={'ADD'}
+                        onClick={props.onClickFab}
+                    />
                 }
             />
         </div>
@@ -23,6 +27,7 @@ export const Header = (props: Props) => {
 }
 
 Header.defaultProps = {
-    className: Header.name.toLowerCase(),
-    title: Header.name.toLowerCase(),
+    className: 'header',
+    title: 'header',
+    onClickFab: ()=>{},
 }
