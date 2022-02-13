@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import '@material/react-dialog/dist/dialog.min.css';
 import '@material/react-button/dist/button.min.css';
@@ -17,12 +17,16 @@ import { AddData } from '../molecules/AddData';
 import { MyTextField } from '../atoms/MyTextField';
 
 export type AddDialogState = {
+    dataUrl: string | null,
+    selectedFile: string,
     cycleValue: CycleType,
     periodValue: string,
     ciValue: string,
 }
 
 export const DefaultAddDialogState: AddDialogState = {
+    dataUrl: null,
+    selectedFile: AddData.defaultProps.selectedFile,
     cycleValue: Cycle.DAILY,
     periodValue: '5',
     ciValue: '99',
@@ -41,16 +45,44 @@ type AddDialogProps = {
 // TODO: fix error when building
 export const AddDialog = (props: AddDialogProps) => {
     const [addDialogState, setAddDialogState] = useState(props.state);
+    const inputFile = useRef(null);
 
     useEffect(()=>{
         setAddDialogState(props.state);
     }, [props.isOpen])
 
-    const onClose = () => {
+    const onClose = ()=>{
         props.setIsOpenAddDialog(false);
     };
     const onClickFinishButton = ()=>{
         props.setState(addDialogState);
+    }
+    const onClickAddDataFab = ()=>{
+        if (!inputFile.current) {
+            return;
+        }
+        // @ts-ignore
+        inputFile.current.click();
+    }
+    const onChangeInputFile = ()=>{
+        // @ts-ignore
+        if (inputFile.current && inputFile.current.files) {
+            // @ts-ignore
+            const file = inputFile.current.files.item(0);
+            if (!file) {
+                return;
+            }
+            const fr = new FileReader();
+            fr.onload = (e)=>{
+                const dataUrl = fr.result;
+                setAddDialogState({
+                    ...addDialogState,
+                    dataUrl: dataUrl && dataUrl.toString(),
+                    selectedFile: file.name
+                })
+            }
+            fr.readAsDataURL(file)
+        }
     }
 
     return (
@@ -62,10 +94,14 @@ export const AddDialog = (props: AddDialogProps) => {
             >
                 <DialogTitle>Forecast Setting</DialogTitle>
                 <DialogContent>
+                    <input type='file' accept='text/csv' ref={inputFile} style={{display: 'none'}} onChange={onChangeInputFile} />
                     <FormRow
                         titleText={'Data'}
                         element={
-                            <AddData/>
+                            <AddData
+                                onClick={onClickAddDataFab}
+                                selectedFile={addDialogState.selectedFile}
+                            />
                         }
                     />
                     <Divider/>
@@ -87,6 +123,7 @@ export const AddDialog = (props: AddDialogProps) => {
                             <MyTextField
                                 label={'Input number of cycle'}
                                 value={addDialogState.periodValue}
+                                type={'number'}
                                 onChange={(e)=>{
                                     setAddDialogState({...addDialogState, periodValue: e.target.value})
                                 }}
@@ -100,6 +137,7 @@ export const AddDialog = (props: AddDialogProps) => {
                             <MyTextField
                                 label={'Input % of CI'}
                                 value={addDialogState.ciValue}
+                                type={'number'}
                                 onChange={(e)=>{
                                     setAddDialogState({...addDialogState, ciValue: e.target.value})
                                 }}

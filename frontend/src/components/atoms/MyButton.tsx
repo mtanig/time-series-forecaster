@@ -4,6 +4,7 @@ import '@material/react-button/dist/button.min.css';
 
 type Props = {
     text: string,
+    dense: boolean,
     onClick: (e:any)=>void,
 }
 
@@ -12,6 +13,7 @@ export const MyButton = (props: Props) => {
         <div className={'my-button'}>
             <Button
                 onClick={props.onClick}
+                dense ={props.dense}
             >
                 {props.text}
             </Button>
@@ -21,5 +23,6 @@ export const MyButton = (props: Props) => {
 
 MyButton.defaultProps = {
     text: '',
+    dense: false,
     onClick: ()=>{},
 }

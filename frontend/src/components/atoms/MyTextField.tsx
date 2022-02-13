@@ -5,6 +5,7 @@ import TextField, {HelperText, Input} from '@material/react-text-field';
 
 type Props = {
     value: string,
+    type: string,
     onChange: Dispatch<SetStateAction<any>>,
     label: string,
     helperText: string,
@@ -20,6 +21,7 @@ export const MyTextField = (props: Props) => {
             >
                 <Input
                     value={props.value}
+                    type={props.type}
                     onChange={props.onChange}
                     isValid={props.isValid}
                 />
@@ -30,6 +32,7 @@ export const MyTextField = (props: Props) => {
 
 MyTextField.defaultProps = {
     value: 0,
+    type: 'string',
     onChange: ()=>{},
     label: '',
     helperText: '',

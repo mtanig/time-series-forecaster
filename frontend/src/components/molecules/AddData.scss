@@ -1,4 +1,9 @@
 .add-data {
   display: flex;
   align-items: center;
+
+  .selected-file {
+    text-decoration: underline;
+    margin-right: 12px;
+  }
 }

@@ -5,7 +5,7 @@ import { MyFab } from './components/atoms/MyFab';
 
 function App() {
     const [addDialogState, setAddDialogState] = useState<AddDialogState>(DefaultAddDialogState)
-    const [isOpenAddDialog, setIsOpenAddDialog] = useState(false);
+    const [isOpenAddDialog, setIsOpenAddDialog] = useState<boolean>(false);
 
     const onClickFab = useCallback(()=>{
         setIsOpenAddDialog(true)
