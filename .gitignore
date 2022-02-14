@@ -1,14 +1,14 @@
 .idea
 .DS_Store
 
-# frontend
+# ui
 node_modules
 package-lock.json
 dist
 dist-ssr
 *.local
 
-# backend
+# api
 .pytest_cache
 __pycache__
 
