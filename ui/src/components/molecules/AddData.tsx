@@ -19,14 +19,14 @@ export const AddData = (props: Props) => {
             <MyButton
                 text={'sample1'}
                 onClick={()=>{
-                    WindowHelper.setLocationHref("assets/sample1.csv");
+                    WindowHelper.setLocationHref("/assets/sample1.csv");
                 }}
                 dense={true}
             />
             <MyButton
                 text={'sample2'}
                 onClick={()=>{
-                    WindowHelper.setLocationHref("assets/sample2.csv");
+                    WindowHelper.setLocationHref("/assets/sample2.csv");
                 }}
                 dense={true}
             />

@@ -39,6 +39,7 @@ type AddDialogProps = {
     setState: SetAddDialogState,
     isOpen: boolean,
     setIsOpenAddDialog: Dispatch<SetStateAction<boolean>>,
+    onClickFinishButton: Function,
 }
 
 
@@ -54,9 +55,6 @@ export const AddDialog = (props: AddDialogProps) => {
     const onClose = ()=>{
         props.setIsOpenAddDialog(false);
     };
-    const onClickFinishButton = ()=>{
-        props.setState(addDialogState);
-    }
     const onClickAddDataFab = ()=>{
         if (!inputFile.current) {
             return;
@@ -153,7 +151,7 @@ export const AddDialog = (props: AddDialogProps) => {
                     </DialogButton>
                     <DialogButton
                         action='confirm'
-                        onClick={onClickFinishButton}
+                        onClick={()=>{props.onClickFinishButton(addDialogState)}}
                     >
                         FINISH
                     </DialogButton>
@@ -168,4 +166,5 @@ AddDialog.defaultProps = {
     setState: () => {},
     isOpen: false,
     setIsOpenAddDialog: () => {},
+    onClickFinishButton: () => {},
 }
