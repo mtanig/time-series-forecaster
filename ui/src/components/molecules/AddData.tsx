@@ -15,21 +15,6 @@ export const AddData = (props: Props) => {
         <div
             className={'add-data'}
         >
-            {/* TODO: move another component.*/}
-            <MyButton
-                text={'sample1'}
-                onClick={()=>{
-                    WindowHelper.setLocationHref("/assets/sample1.csv");
-                }}
-                dense={true}
-            />
-            <MyButton
-                text={'sample2'}
-                onClick={()=>{
-                    WindowHelper.setLocationHref("/assets/sample2.csv");
-                }}
-                dense={true}
-            />
             <div className={'selected-file'}>
                 {props.selectedFile}
             </div>

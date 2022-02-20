@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { AddDialog, AddDialogState, DefaultAddDialogState } from './components/organisms/AddDialog';
 import { Header } from './components/organisms/Header';
 import { forecastApiAdapter } from './adapters/ForecastApiAdapter';
-import { ResultChart } from './components/organisms/ResultChart';
+import { Content } from './components/organisms/Content';
 
 function App() {
     const [addDialogState, setAddDialogState] = useState<AddDialogState>(DefaultAddDialogState)
@@ -37,7 +37,7 @@ function App() {
                 setIsOpenAddDialog={setIsOpenAddDialog}
                 onClickFinishButton={onClickAddDialogFinishButton}
             />
-            <ResultChart
+            <Content
                 dataUrl={resultDataUrl}
             />
         </div>

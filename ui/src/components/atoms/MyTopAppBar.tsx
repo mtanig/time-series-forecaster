@@ -12,7 +12,7 @@ import React from 'react';
 type Props = {
     className: string,
     title: string,
-    toolbarInner?: React.ReactNode,
+    toolbarInner: JSX.Element,
 }
 
 export const MyTopAppBar = (props: Props) => {
