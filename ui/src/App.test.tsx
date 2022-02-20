@@ -2,10 +2,28 @@ import App from './App';
 import React from 'react'
 import user from '@testing-library/user-event'
 import { render, screen } from '@testing-library/react';
+import { Header } from './components/organisms/Header';
+import { Content } from './components/organisms/Content';
+
+jest.mock('./components/atoms/C3Chart');
 
 describe("App", () => {
     beforeEach(()=>{
         render(<App/>);
+    });
+
+    it('displays Header', ()=> {
+        expect(getHeader()).toBeInTheDocument();
+    });
+
+    it('displays Content', ()=> {
+        expect(getContent()).toBeInTheDocument();
+    });
+
+    describe('Header', ()=>{
+        it('displays Fab', ()=>{
+            expect(getHeader().getElementsByClassName('my-fab').length).toEqual(1)
+        });
     });
 
     describe.skip("button", ()=>{
@@ -22,4 +40,12 @@ describe("App", () => {
             })
         })
     });
+
+    function getHeader() {
+        return screen.getByTestId(Header.defaultProps.dataTestId);
+    }
+
+    function getContent() {
+        return screen.getByTestId(Content.defaultProps.dataTestId);
+    }
 });

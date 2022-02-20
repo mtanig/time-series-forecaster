@@ -12,6 +12,7 @@ export const Header = (props: Props) => {
     return (
         <div
             className={props.className}
+            data-testid={Header.defaultProps.dataTestId}
         >
             <MyTopAppBar
                 title={props.title}
@@ -27,6 +28,7 @@ export const Header = (props: Props) => {
 }
 
 Header.defaultProps = {
+    dataTestId: 'header',
     className: 'header',
     title: 'header',
     onClickFab: ()=>{},

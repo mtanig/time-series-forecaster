@@ -84,7 +84,10 @@ export const AddDialog = (props: AddDialogProps) => {
     }
 
     return (
-        <div className={'add-dialog'}>
+        <div
+            className={'add-dialog'}
+            data-testid={AddDialog.defaultProps.dataTestId}
+        >
             <Dialog
                 onClose={onClose}
                 open={props.isOpen}
@@ -162,6 +165,7 @@ export const AddDialog = (props: AddDialogProps) => {
 }
 
 AddDialog.defaultProps = {
+    dataTestId: 'add-dialog',
     state: DefaultAddDialogState,
     setState: () => {},
     isOpen: false,

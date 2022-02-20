@@ -14,6 +14,7 @@ export const Content = (props: Props) => {
     return (
         <div
             className={props.className}
+            data-testid={Content.defaultProps.dataTestId}
         >
             <MyCard
                 title={'Result'}
@@ -68,6 +69,7 @@ export const Content = (props: Props) => {
 };
 
 Content.defaultProps = {
+    dataTestId: 'content',
     className: 'content',
     dataUrl: null,
 }
