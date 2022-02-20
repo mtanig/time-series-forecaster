@@ -18,8 +18,6 @@ interface forecastApiResponse {
 }
 
 class ForecastApiAdapter {
-    readonly URL = import.meta.env.VITE_FORECAST_API_URL;
-
     async post(addDialogState: AddDialogState): Promise<forecastApiResponse> {
         try {
             // TODO: check before adapters
@@ -39,7 +37,7 @@ class ForecastApiAdapter {
                 }
             };
 
-            const res = await window.fetch(this.URL + path, {
+            const res = await window.fetch(path, {
                 method: 'POST',
                 body: JSON.stringify(body),
             });
