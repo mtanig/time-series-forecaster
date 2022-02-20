@@ -1,4 +1,4 @@
-date,data,y_pred,y_pred_upper,y_pred_lower
+date,data,y_prediction,y_prediction_upper,y_prediction_lower
 2021-04-05,10.0,,,
 2021-04-06,10.0,,,
 2021-04-07,10.0,,,

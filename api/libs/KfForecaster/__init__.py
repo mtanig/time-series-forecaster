@@ -136,9 +136,9 @@ class KfForecaster:
             pred_y[i] = pred_mean
             pred_lower[i], pred_upper[i] = norm.interval(ci, pred_mean, scale=np.sqrt(pred_cov))
 
-            new_df_res_row_index = self.df.index[-1] if i == 0 else np.datetime64(df_res.index[-1] + self.data_interval)
+            new_df_res_row_index = np.datetime64(self.df.index[-1] + self.data_interval) if i == 0 else np.datetime64(df_res.index[-1] + self.data_interval)
             new_df_res_row = pd.DataFrame([[pred_y[i], pred_upper[i], pred_lower[i]]],
-                                          columns=['y_pred', 'y_pred_upper', 'y_pred_lower'],
+                                          columns=['y_prediction', 'y_prediction_upper', 'y_prediction_lower'],
                                           index=[new_df_res_row_index])
             new_df_res_row.index.name = self.df.index.name
             df_res = df_res.append(new_df_res_row)
