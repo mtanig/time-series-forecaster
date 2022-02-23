@@ -2,6 +2,7 @@ import numpy as np
 
 np.random.seed(555)
 import pandas as pd
+import datetime
 from scipy.stats import norm
 from pykalman import KalmanFilter
 
@@ -152,7 +153,9 @@ class KfForecaster:
         return pd.concat([self.df, self.df_result])
 
     def get_combined_result_as_str(self):
-        return self.get_combined_result().to_csv()
+        formatted_df = self.get_combined_result()
+        formatted_df.index = formatted_df.index.map(lambda x: datetime.datetime.strftime(x, '%Y-%m-%d %H:%M:%S'))
+        return formatted_df.to_csv(encoding='utf_8_sig')
 
     def run(self, n_interval, ci=0.95):
         self.smooth()

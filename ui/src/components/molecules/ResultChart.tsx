@@ -20,6 +20,8 @@ export const ResultChart = (props: Props) => {
     }
     const chartProps: ChartProps = {
         data: {
+            // https://github.com/d3/d3-time-format/blob/main/README.md
+            xFormat: '%Y-%m-%d %H:%M:%S',
             x: axisLabel,
             columns: columns,
         },

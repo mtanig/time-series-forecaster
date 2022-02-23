@@ -7,3 +7,4 @@ statsmodels
 pykalman
 python-dateutil
 gunicorn
+chardet

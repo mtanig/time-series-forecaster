@@ -38,6 +38,13 @@ export const Content = (props: Props) => {
                 actionButtons={
                     <div>
                         <MyButton
+                            text={'daily.csv'}
+                            onClick={() => {
+                                WindowHelper.setLocationHref("/assets/sample-daily.csv");
+                            }}
+                            dense={true}
+                        />
+                        <MyButton
                             text={'weekly.csv'}
                             onClick={() => {
                                 WindowHelper.setLocationHref("/assets/sample-weekly.csv");
