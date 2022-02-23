@@ -17,7 +17,7 @@ interface forecastApiResponse {
     status: string,
 }
 
-class ForecastApiAdapter {
+export class ForecastApiAdapter {
     async post(addDialogState: AddDialogState): Promise<forecastApiResponse> {
         try {
             // TODO: check before adapters

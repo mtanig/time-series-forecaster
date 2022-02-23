@@ -5,7 +5,6 @@ import './CycleTabs.scss';
 import { MyTab } from '../atoms/MyTab';
 
 export const Cycle = {
-    HOURLY: '1H',
     WEEKLY: '1W',
     DAILY: '1D',
     MONTHLY: '1M',
@@ -22,11 +21,6 @@ type Props = {
 export const CycleTabs = (props: Props) => {
     return (
         <div className={'cycle-tabs'}>
-            <MyTab
-                text={'Hourly'}
-                active={props.value === Cycle.HOURLY}
-                onFocus={()=>{props.onFocus(Cycle.HOURLY)}}
-            />
             <MyTab
                 text={'Daily'}
                 active={props.value === Cycle.DAILY}

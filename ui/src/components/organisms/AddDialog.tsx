@@ -148,11 +148,13 @@ export const AddDialog = (props: AddDialogProps) => {
                 </DialogContent>
                 <DialogFooter>
                     <DialogButton
+                        className={'dialog-cancel-button'}
                         action='dismiss'
                     >
                         CANCEL
                     </DialogButton>
                     <DialogButton
+                        className={'dialog-finish-button'}
                         action='confirm'
                         onClick={()=>{props.onClickFinishButton(addDialogState)}}
                     >

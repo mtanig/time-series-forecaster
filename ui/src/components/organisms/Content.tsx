@@ -4,6 +4,7 @@ import { MyCard } from '../atoms/MyCard';
 import { MyButton } from '../atoms/MyButton';
 import { WindowHelper } from '../../libs/WindowHelper';
 import { MyMaterialIcon } from '../atoms/MyMaterialIcon';
+import { SampleChart } from '../molecules/SampleChart';
 
 type Props = {
     className: string,
@@ -20,7 +21,9 @@ export const Content = (props: Props) => {
                 title={'Result'}
                 outlined={true}
                 primaryContent={
-                    <ResultChart dataUrl={props.dataUrl}/>
+                    <div>
+                        {props.dataUrl ? (<ResultChart dataUrl={props.dataUrl}/>) : (<SampleChart/>)}
+                    </div>
                 }
                 content={
                     <div>

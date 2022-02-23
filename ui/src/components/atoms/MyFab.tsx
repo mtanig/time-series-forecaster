@@ -5,6 +5,7 @@ import React from 'react';
 import { MyMaterialIcon } from './MyMaterialIcon';
 
 type Props = {
+    dataTestId?: string
     icon: string,
     textLabel: string,
     onClick: (e: any)=>void,
@@ -16,6 +17,7 @@ export const MyFab = (props: Props) => {
             className={'my-fab'}
         >
             <Fab
+                data-testid={props.dataTestId}
                 icon={
                     <MyMaterialIcon icon={props.icon}/>
                 }

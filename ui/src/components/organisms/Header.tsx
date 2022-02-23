@@ -18,6 +18,7 @@ export const Header = (props: Props) => {
                 title={props.title}
                 toolbarInner={
                     <MyFab
+                        dataTestId={'fab-in-header'}
                         textLabel={'ADD'}
                         onClick={props.onClickFab}
                     />
