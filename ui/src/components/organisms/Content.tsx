@@ -5,10 +5,12 @@ import { MyButton } from '../atoms/MyButton';
 import { WindowHelper } from '../../libs/WindowHelper';
 import { MyMaterialIcon } from '../atoms/MyMaterialIcon';
 import { SampleChart } from '../molecules/SampleChart';
+import { MyLinearProgress } from '../atoms/MyLinearProgress';
 
 type Props = {
     className: string,
     dataUrl: string | null,
+    isLoading: boolean,
 }
 
 export const Content = (props: Props) => {
@@ -22,6 +24,7 @@ export const Content = (props: Props) => {
                 outlined={true}
                 primaryContent={
                     <div>
+                        {props.isLoading && (<MyLinearProgress/>)}
                         {props.dataUrl ? (<ResultChart dataUrl={props.dataUrl}/>) : (<SampleChart/>)}
                     </div>
                 }
@@ -82,4 +85,5 @@ Content.defaultProps = {
     dataTestId: 'content',
     className: 'content',
     dataUrl: null,
+    isLoading: false,
 }

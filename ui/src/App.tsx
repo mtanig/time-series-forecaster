@@ -9,14 +9,17 @@ function App() {
     const [isOpenAddDialog, setIsOpenAddDialog] = useState<boolean>(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [resultDataUrl, setResultDataUrl] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const onClickFab = useCallback(()=>{
         setIsOpenAddDialog(true)
     },[]);
     const onClickAddDialogFinishButton = useCallback(async (addDialogState: AddDialogState)=>{
         try {
+            setIsLoading(true);
             const res = await forecastApiAdapter.post(addDialogState);
             setResultDataUrl(res.data.dataUrl);
+            setIsLoading(false);
         } catch (e: any) {
             setErrorMessage(e.message);
         }
@@ -39,6 +42,7 @@ function App() {
             />
             <Content
                 dataUrl={resultDataUrl}
+                isLoading={isLoading}
             />
         </div>
     )
