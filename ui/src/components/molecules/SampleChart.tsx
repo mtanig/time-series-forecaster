@@ -29,9 +29,14 @@ export const SampleChart = (props: Props) =>{
         <div
             className={props.className}
         >
-            <C3Chart
-                props={sampleChartProps}
-            />
+            <div className={'overlay'}>
+                <div className="text">
+                    Sample
+                </div>
+                <C3Chart
+                    props={sampleChartProps}
+                />
+            </div>
         </div>
     )
 }

@@ -2,8 +2,6 @@ import React  from 'react';
 import './AddData.scss'
 
 import { MyFab } from '../atoms/MyFab';
-import { MyButton } from '../atoms/MyButton';
-import { WindowHelper } from '../../libs/WindowHelper';
 
 type Props = {
     selectedFile: string,
