@@ -15,7 +15,7 @@ export const AddData = (props: Props) => {
         <div
             className={'add-data'}
         >
-            <div className={'selected-file'}>
+            <div className={`selected-file ${props.selectedFile === AddData.defaultProps.selectedFile ? 'not-selected' : ''}`}>
                 {props.selectedFile}
             </div>
             <div className={'icon'}>
