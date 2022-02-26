@@ -28,10 +28,7 @@ export const MyCard = (props: Props) => {
                 outlined={props.outlined}
             >
                 <h1>{props.title}</h1>
-                {/*<CardPrimaryContent>*/}
-                    {props.primaryContent}
-                {/*</CardPrimaryContent>*/}
-
+                {props.primaryContent}
                 {props.content}
                 <CardActions>
                     <CardActionButtons>

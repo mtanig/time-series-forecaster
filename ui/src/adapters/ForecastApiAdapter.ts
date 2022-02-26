@@ -11,7 +11,8 @@ interface forecastApiRequest {
     }
 }
 interface forecastApiResponse {
-    data: {
+    message?: string,
+    data?: {
         dataUrl: string,
     },
     status: string,
@@ -41,11 +42,10 @@ export class ForecastApiAdapter {
                 method: 'POST',
                 body: JSON.stringify(body),
             });
-            if (!res.ok) {
-                throw new Error(`status: ${res.status}, statusText: ${res.statusText}`);
-            }
-
             const data: forecastApiResponse = await res.json();
+            if (!res.ok) {
+                throw new Error(`status: ${res.status}, statusText: ${res.statusText}, message: ${data.message}`);
+            }
 
             return data;
         } catch (e: any) {

@@ -1,0 +1,18 @@
+@import "src/styles/color";
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  margin-bottom: 12px;
+
+  border: 1px solid $color-error;
+  border-radius: 6px;
+
+  background: $color-red-100;
+
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}

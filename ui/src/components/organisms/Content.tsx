@@ -6,11 +6,13 @@ import { WindowHelper } from '../../libs/WindowHelper';
 import { MyMaterialIcon } from '../atoms/MyMaterialIcon';
 import { SampleChart } from '../molecules/SampleChart';
 import { MyLinearProgress } from '../atoms/MyLinearProgress';
+import { ErrorMessage } from '../atoms/ErrorMessage';
 
 type Props = {
     className: string,
     dataUrl: string | null,
     isLoading: boolean,
+    errorMessage: string | null,
 }
 
 export const Content = (props: Props) => {
@@ -24,6 +26,7 @@ export const Content = (props: Props) => {
                 outlined={true}
                 primaryContent={
                     <div>
+                        {props.errorMessage && (<ErrorMessage message={props.errorMessage}/>)}
                         {props.isLoading && (<MyLinearProgress/>)}
                         {props.dataUrl ? (<ResultChart dataUrl={props.dataUrl}/>) : (<SampleChart/>)}
                     </div>
@@ -86,4 +89,5 @@ Content.defaultProps = {
     className: 'content',
     dataUrl: null,
     isLoading: false,
+    errorMessage: null,
 }

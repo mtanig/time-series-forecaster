@@ -15,6 +15,7 @@
     "@material/react-fab": "^0.15.0",
     "@material/react-linear-progress": "^0.15.0",
     "@material/react-material-icon": "^0.15.0",
+    "@material/react-snackbar": "^0.15.0",
     "@material/react-tab": "^0.15.0",
     "@material/react-text-field": "^0.15.0",
     "@material/react-top-app-bar": "^0.15.0",

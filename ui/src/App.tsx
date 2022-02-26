@@ -18,9 +18,11 @@ function App() {
         try {
             setIsLoading(true);
             const res = await forecastApiAdapter.post(addDialogState);
-            setResultDataUrl(res.data.dataUrl);
+            setResultDataUrl(res.data ? res.data.dataUrl : null);
             setIsLoading(false);
+            setErrorMessage(null);
         } catch (e: any) {
+            setIsLoading(false);
             setErrorMessage(e.message);
         }
 
@@ -43,6 +45,7 @@ function App() {
             <Content
                 dataUrl={resultDataUrl}
                 isLoading={isLoading}
+                errorMessage={errorMessage}
             />
         </div>
     )
