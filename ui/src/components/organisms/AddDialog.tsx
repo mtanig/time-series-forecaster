@@ -15,6 +15,8 @@ import { Divider } from '../atoms/Divider';
 import { Cycle, CycleTabs, CycleType } from '../molecules/CycleTabs';
 import { AddData } from '../molecules/AddData';
 import { MyTextField } from '../atoms/MyTextField';
+import { Period } from '../../models/Period';
+import { ConfidenceInterval } from '../../models/ConfidenceInterval';
 
 export type AddDialogState = {
     dataUrl: string | null,
@@ -128,6 +130,7 @@ export const AddDialog = (props: AddDialogProps) => {
                                 onChange={(e)=>{
                                     setAddDialogState({...addDialogState, periodValue: e.target.value})
                                 }}
+                                isValid={Period.isValid(+addDialogState.periodValue)}
                             />
                         }
                     />
@@ -142,6 +145,7 @@ export const AddDialog = (props: AddDialogProps) => {
                                 onChange={(e)=>{
                                     setAddDialogState({...addDialogState, ciValue: e.target.value})
                                 }}
+                                isValid={ConfidenceInterval.isValid(+addDialogState.ciValue)}
                             />
                         }
                     />
