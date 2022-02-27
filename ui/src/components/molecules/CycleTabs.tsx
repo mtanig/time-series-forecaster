@@ -4,10 +4,10 @@ import './CycleTabs.scss';
 
 import { MyTab } from '../atoms/MyTab';
 
+// https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects
 export const Cycle = {
     WEEKLY: '1W',
     DAILY: '1D',
-    MONTHLY: '1M',
     YEARLY: '1Y',
 } as const;
 
@@ -30,11 +30,6 @@ export const CycleTabs = (props: Props) => {
                 text={'Weekly'}
                 active={props.value === Cycle.WEEKLY}
                 onFocus={()=>{props.onFocus(Cycle.WEEKLY)}}
-            />
-            <MyTab
-                text={'Monthly'}
-                active={props.value === Cycle.MONTHLY}
-                onFocus={()=>{props.onFocus(Cycle.MONTHLY)}}
             />
             <MyTab
                 text={'Yearly'}

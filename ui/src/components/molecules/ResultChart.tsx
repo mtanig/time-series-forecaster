@@ -28,7 +28,10 @@ export const ResultChart = (props: Props) => {
         axis: {
             x: {
                 type: 'timeseries',
-            }
+                tick: {
+                    format: '%Y-%m-%d %H:%M:%S'
+                }
+            },
         }
     }
 

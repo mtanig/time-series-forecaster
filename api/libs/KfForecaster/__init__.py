@@ -22,6 +22,7 @@ class KfForecaster:
         df.index.name = 'date'
         df = df.interpolate()
         self.df = df
+        print(self.df)
 
         self.df_result = None
 
