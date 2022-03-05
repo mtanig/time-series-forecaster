@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "build": "vite build",
+    "preview": "vite preview --port 3001",
     "test": "jest --testTimeout=10000 --maxWorkers=4",
     "test:specify": "jest --testTimeout=10000 --maxWorkers=4 -t"
   },

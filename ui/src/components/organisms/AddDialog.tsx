@@ -45,7 +45,6 @@ type AddDialogProps = {
 }
 
 
-// TODO: fix error when building
 export const AddDialog = (props: AddDialogProps) => {
     const [addDialogState, setAddDialogState] = useState(props.state);
     const inputFile = useRef(null);

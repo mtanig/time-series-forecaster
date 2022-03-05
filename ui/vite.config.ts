@@ -5,9 +5,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: './',
   plugins: [react()],
-  server: {
-    proxy: {
-      '/forecast': 'http://localhost:5000',
-    }
-  }
 })

@@ -25,7 +25,7 @@ export class ForecastApiAdapter {
             if (!addDialogState.dataUrl) {
                 throw new Error('csv data is empty.');
             }
-            const path = '/forecast';
+            const url = 'http://localhost:5001/forecast';
             const body: forecastApiRequest = {
                 data: {
                     dataUrl: addDialogState.dataUrl,
@@ -38,7 +38,7 @@ export class ForecastApiAdapter {
                 }
             };
 
-            const res = await window.fetch(path, {
+            const res = await window.fetch(url, {
                 method: 'POST',
                 body: JSON.stringify(body),
             });
