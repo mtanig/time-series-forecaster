@@ -46,21 +46,21 @@ export const Content = (props: Props) => {
                         <MyButton
                             text={'daily.csv'}
                             onClick={() => {
-                                WindowHelper.setLocationHref("/assets/sample-daily.csv");
+                                WindowHelper.setLocationHref("/sample-daily.csv");
                             }}
                             dense={true}
                         />
                         <MyButton
                             text={'weekly.csv'}
                             onClick={() => {
-                                WindowHelper.setLocationHref("/assets/sample-weekly.csv");
+                                WindowHelper.setLocationHref("/sample-weekly.csv");
                             }}
                             dense={true}
                         />
                         <MyButton
                             text={'yearly.csv'}
                             onClick={() => {
-                                WindowHelper.setLocationHref("/assets/sample-yearly.csv");
+                                WindowHelper.setLocationHref("/sample-yearly.csv");
                             }}
                             dense={true}
                         />
