@@ -8,5 +8,5 @@ $ pip install -r requirements.txt
 ```
 $ make start
 
-$ curl -X POST -H 'Content-Type: application/json' -d @tests/data/valid_full_request.json http://localhost:5000/forecast
+$ curl -X POST -H 'Content-Type: application/json' -d @tests/data/valid_full_request.json http://localhost:5001/forecast
 ```
