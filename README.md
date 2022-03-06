@@ -3,7 +3,11 @@
 
 Time Series Forecaster is an easy to use ui-based forecaster.
 
+![Time Series Forecaster UI Image](ui/assets/ui-image.png "Time Series Forecaster UI")
+
 ## How to use
+![Usage Video](ui/assets/usage-video.gif "Usage Video")
+
 ### 1. Start application
 #### - With Docker (Recommend)
 Execute the following command after starting docker.
