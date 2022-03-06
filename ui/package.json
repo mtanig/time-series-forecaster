@@ -2,7 +2,8 @@
   "name": "frontend",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3000",
+    "dev-port-80": "vite --port 80",
     "build": "vite build",
     "preview": "vite preview --port 3001",
     "test": "jest --testTimeout=10000 --maxWorkers=4",

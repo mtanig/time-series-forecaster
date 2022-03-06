@@ -1,12 +1,12 @@
 version: '3'
 services:
   ui:
-    image: mtani/time-series-forecaster-ui
+    image: mtani/time-series-forecaster-ui:latest
     ports:
       - '80:80'
     depends_on:
       - api
   api:
-    image: mtani/time-series-forecaster-api
+    image: mtani/time-series-forecaster-api:latest
     ports:
       - '5001:5001'
