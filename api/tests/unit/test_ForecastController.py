@@ -56,7 +56,7 @@ def test_invalid_params_data_url(client):
 
         test_invalid_request = test_request_raw.copy()
         expected_response = expected_response_raw.copy()
-        expected_response['message'] = 'data_url format is invalid.'
+        expected_response['message'] = 'DataUrl format is invalid.'
 
         result = client.post(
             '/forecast',

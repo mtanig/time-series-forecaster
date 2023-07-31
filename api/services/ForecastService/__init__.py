@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from io import BytesIO
 import pandas as pd
 import chardet
@@ -9,19 +10,21 @@ from api.models.ForecastInterval import ForecastInterval
 from api.models.SeasonalFreq import SeasonalFreq
 
 
+@dataclass
 class ForecastService:
-    def __init__(self):
-        pass
+    data_url: DataUrl
+    ci: Ci
+    seasonal_freq: SeasonalFreq
+    forecast_interval: ForecastInterval
 
-    @staticmethod
-    def run(data_url: DataUrl, ci: Ci, seasonal_freq: SeasonalFreq, forecast_interval: ForecastInterval) -> DataUrl:
-        csv = data_url.get_as_decoded_str()
+    def __call__(self) -> DataUrl:
+        csv = self.data_url.get_as_decoded_str()
         char_type = chardet.detect(csv)['encoding']
         df = pd.read_csv(BytesIO(csv), index_col=0, encoding=char_type)
         df.index = pd.to_datetime(df.index)
 
-        kff = KfForecaster(df, seasonal_freq=seasonal_freq.get_as_str())
-        kff.run(n_interval=forecast_interval.get_as_int(), ci=ci.get_as_float())
+        kff = KfForecaster(df, seasonal_freq=self.seasonal_freq.value)
+        kff.run(n_interval=self.forecast_interval.value, ci=self.ci.value)
         result_csv_str = kff.get_combined_result_as_str()
         result_data_url = DataUrl(DataUrl.encode(result_csv_str))
 

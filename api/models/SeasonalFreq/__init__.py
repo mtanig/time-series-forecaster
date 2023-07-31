@@ -1,11 +1,12 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class SeasonalFreq:
-    def __init__(self, seasonal_freq):
-        if type(seasonal_freq) is not str:
-            raise TypeError('seasonal_freq is not str.')
+    value: str
+
+    def __post_init__(self):
+        if type(self.value) is not str:
+            raise TypeError(f'{self.__class__.__name__} is not str.')
 
         # TODO: add validations
-
-        self.seasonal_freq = seasonal_freq
-
-    def get_as_str(self) -> str:
-        return self.seasonal_freq

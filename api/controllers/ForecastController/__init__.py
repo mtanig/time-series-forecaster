@@ -32,7 +32,9 @@ def forecast():
                 "message": str(e),
             }), 400
 
-        result_data_url = ForecastService.run(data_url, ci, seasonal_freq, forecast_interval)
+        
+        forecast_service = ForecastService(data_url, ci, seasonal_freq, forecast_interval)
+        result_data_url = forecast_service()
 
         return jsonify({
                    "status": "success",
